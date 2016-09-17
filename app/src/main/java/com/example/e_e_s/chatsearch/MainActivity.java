@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
     public ListView Fornavn;
     private static final int PERMISSION_REQUEST_READ_CONTACTS = 100;
     ArrayAdapter<String> adapter;
-    public final static String hello = "hello";
+    public final static String hello = "Melding fra ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -83,9 +83,10 @@ public class MainActivity extends AppCompatActivity
             {
                 public void onItemClick(AdapterView<?> av, View view, int i, long l)
                 {
-                    Intent intent = new Intent(MainActivity.this, Message.class);
+                    final String contact = (String) av.getItemAtPosition(i);
+                    Intent intent = new Intent(view.getContext(), Message.class);
 
-                    intent.putExtra(hello, "hello");
+                    intent.putExtra(hello, contact);
                     startActivity(intent);
                 }
 

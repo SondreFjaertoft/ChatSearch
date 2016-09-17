@@ -17,6 +17,7 @@ import org.w3c.dom.Text;
 
 public class Message extends AppCompatActivity
 {
+    //TextView mottaker;
 
 
     @Override
@@ -26,12 +27,12 @@ public class Message extends AppCompatActivity
         setContentView(R.layout.message_text);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.hello);
-        TextView test = new TextView(this);
+        String nameOfClicked = intent.getStringExtra(MainActivity.hello);
 
-        test.setText(message);
-        ViewGroup layout = (ViewGroup) findViewById(R.id.message_text);
-        layout.addView(test);
+
+        getSupportActionBar().setTitle(nameOfClicked);
+
+
 
 
     }

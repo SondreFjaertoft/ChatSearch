@@ -20,7 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Message"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden"
+
+            android:theme="@style/AppTheme"
+             >
+
 
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
