@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+
+
+import static android.R.attr.value;
 
 /**
  * Created by e-e-s on 16.09.2016.
@@ -24,11 +26,16 @@ public class Message extends AppCompatActivity
     EditText message;
     Button sendButton;
     TextView sendText;
+    Bundle icicle;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
+    protected void onCreate(@Nullable Bundle icicle)
     {
-        super.onCreate(savedInstanceState);
+        if(icicle != null)
+        {
+            value = icicle.getLong("param");
+        }
+        //super.onCreate(savedInstanceState);
         setContentView(R.layout.message_text);
 
         Intent intent = getIntent();
@@ -40,6 +47,10 @@ public class Message extends AppCompatActivity
         message = (EditText) findViewById(R.id.inputMessage);
         sendButton = (Button) findViewById(R.id.sendButton);
         sendText = (TextView) findViewById(R.id.dinText);
+        TextView friendText = (TextView) findViewById(R.id.getText);
+        CharSequence theySay = "\nSays: \nDitte e harkoda fordi du\nsuge sondre :(";
+        friendText.setText(nameOfClicked + theySay);
+
 
         sendButton.setOnClickListener(new View.OnClickListener()
         {
@@ -61,6 +72,12 @@ public class Message extends AppCompatActivity
 
             }
         });
+
+    }
+    protected void onSaveInstanceState(Bundle icicle)
+    {
+        super.onSaveInstanceState(icicle);
+        icicle.putLong("param", value);
     }
 
 

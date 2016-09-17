@@ -28,7 +28,7 @@
         android:layout_toStartOf="@+id/sendButton" />
 
     <TextView
-        android:text="TextView"
+        android:text="You:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dinText"
@@ -37,7 +37,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="TextView1"
+
         android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
