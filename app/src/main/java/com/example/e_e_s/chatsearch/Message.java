@@ -1,11 +1,13 @@
 package com.example.e_e_s.chatsearch;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,7 +46,19 @@ public class Message extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                sendText.setText(message.getText().toString());
+                InputMethodManager inputManager =
+                        (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+                CharSequence getTextViewText = sendText.getText();
+                String input = message.getText().toString();
+
+                sendText.setText(getTextViewText+ "\n" + input);
+                message.setText("");
+
+
+
             }
         });
     }
