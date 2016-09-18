@@ -26,16 +26,13 @@ public class Message extends AppCompatActivity
     EditText message;
     Button sendButton;
     TextView sendText;
-    Bundle icicle;
+
 
     @Override
-    protected void onCreate(@Nullable Bundle icicle)
+    protected void onCreate(@Nullable Bundle savedInstanceState)
     {
-        if(icicle != null)
-        {
-            value = icicle.getLong("param");
-        }
-        //super.onCreate(savedInstanceState);
+
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.message_text);
 
         Intent intent = getIntent();
@@ -48,7 +45,7 @@ public class Message extends AppCompatActivity
         sendButton = (Button) findViewById(R.id.sendButton);
         sendText = (TextView) findViewById(R.id.dinText);
         TextView friendText = (TextView) findViewById(R.id.getText);
-        CharSequence theySay = "\nSays: \nDitte e harkoda fordi du\nsuge sondre :(";
+        CharSequence theySay = "\nSays: \nMic check 123 :)";
         friendText.setText(nameOfClicked + theySay);
 
 
@@ -74,11 +71,7 @@ public class Message extends AppCompatActivity
         });
 
     }
-    protected void onSaveInstanceState(Bundle icicle)
-    {
-        super.onSaveInstanceState(icicle);
-        icicle.putLong("param", value);
-    }
+
 
 
 
